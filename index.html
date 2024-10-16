@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="PlatformNext Dashboard">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="PlatformNext Website">
+  <meta name='dmca-site-verification' content='b1FCUjFWa1o5bUt4RXRrai9DVk5obmlnb1JVN1N5dWFxdTRZVG5USFJ5TT01' />
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <title>PlatformNext Website</title>
+  <link rel="manifest" href="manifest.json">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="flutter.js"></script>
+</head>
+
+<body>
+  <div id="dev_loading" style="margin: 0;height: 80vh;align-items: center;justify-content: center;display: flex;">
+    <lottie-player src="loading.json" background="transparent" speed="0.5" style="width: 350px; height: 350px;" loop
+      autoplay></lottie-player>
+  </div>
+  <script>
+      var scriptLoaded = false;
+        function loadMainDartJs() {
+          if (scriptLoaded) {
+            return;
+          }
+          scriptLoaded = true;
+          var scriptTag = document.createElement('script');
+          scriptTag.src = 'main.dart.js';
+          scriptTag.type = 'application/javascript';
+          document.body.append(scriptTag);
+        }
+        var currentUrl = window.location.href;
+        if (!currentUrl.includes('localhost') && !currentUrl.includes('192.168.')) {
+          var script = document.createElement('script');
+          script.src = 'f12.js';
+          script.defer = true;
+          document.head.appendChild(script);
+        }
+        let serviceWorkerVersion = "646104786";
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function () {
+            var serviceWorkerUrl = 'flutter_service_worker.js?v='+serviceWorkerVersion;
+            navigator.serviceWorker.register(serviceWorkerUrl)
+              .then((reg) => {
+                function waitForActivation(serviceWorker) {
+                  serviceWorker.addEventListener('statechange', () => {
+                    if (serviceWorker.state == 'activated') {
+                      console.log('Installed new service worker.');
+                      loadMainDartJs();
+                    }
+                  });
+                }
+                if (!reg.active && (reg.installing || reg.waiting)) {
+                  waitForActivation(reg.installing == null ? reg.waiting : reg.installing);
+                } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
+                  console.log('New service worker available.');
+                  reg.update();
+                  waitForActivation(reg.installing);
+                } else {
+                  console.log('Loading app from service worker.');
+                  loadMainDartJs();
+                }
+              });
+            if (!scriptLoaded) {
+              console.warn(
+                'Failed to load app from service worker. Falling back to plain <script> tag.',
+              );
+              loadMainDartJs();
+            }
+          });
+        } else {
+          loadMainDartJs();
+        }
+  </script>
+ </body>
+<a href="//www.dmca.com/Protection/Status.aspx?ID=9a80b2e0-bc91-4359-8abd-244e7fda0558" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca_protected_sml_120l.png?ID=9a80b2e0-bc91-4359-8abd-244e7fda0558"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+</html>
