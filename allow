@@ -5,5 +5,12 @@
     "allow": true,
     "redirect": "",
     "note": "Testing"
+  },
+  {
+    "key": "HTPNVN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
   }
 ]
