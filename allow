@@ -1,0 +1,9 @@
+[
+  {
+    "key": "TorinVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  }
+]
