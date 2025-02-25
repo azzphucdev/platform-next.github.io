@@ -1,0 +1,135 @@
+{
+    "data": {
+        "Windows": {
+            "clash": null,
+            "nekoray": {
+                "name": "Nekoray",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://github.com/MatsuriDayo/nekoray/releases/latest"
+            },
+            "netch": {
+                "name": "Netch",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://github.com/netchx/netch/releases/latest"
+            },
+            "v2rayn": {
+                "name": "V2RayN",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://github.com/2dust/v2rayN/releases/latest"
+            },
+            "karing": {
+                "name": "Karing",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://github.com/KaringX/karing/releases/latest"
+            }
+        },
+        "macOS": {
+            "singbox": {
+                "name": "Sing-Box",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://apps.apple.com/us/app/sing-box/id6451272673"
+            },
+            "clashx": {
+                "name": "ClashX",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://github.com/passwa11/ClashX/releases/latest"
+            },
+            "cfw": null,
+            "shadowrocket": {
+                "name": "Shadowrocket",
+                "version": "Latest",
+                "price": "79.000đ",
+                "link": "https://apps.apple.com/vn/app/shadowrocket/id932747118"
+            },
+            "quantumultx": {
+                "name": "Quantumult X",
+                "version": "Latest",
+                "price": "199.000đ",
+                "link": "https://apps.apple.com/vn/app/quantumult-x/id1443988620"
+            },
+            "karing": {
+                "name": "Karing",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://apps.apple.com/us/app/karing/id6472431552"
+            }
+        },
+        "iOS": {
+            "singbox": {
+                "name": "Sing-Box",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://apps.apple.com/vn/app/sing-box/id6451272673"
+            },
+            "shadowrocket": {
+                "name": "Shadowrocket",
+                "version": "Latest",
+                "price": "79.000đ",
+                "link": "https://apps.apple.com/vn/app/shadowrocket/id932747118"
+            },
+            "quantumultx": {
+                "name": "Quantumult-X",
+                "version": "Latest",
+                "price": "199.000đ",
+                "link": "https://apps.apple.com/vn/app/quantumult-x/id1443988620"
+            },
+            "surge": {
+                "name": "Surge",
+                "version": "Latest",
+                "price": "1.299.000đ",
+                "link": "https://apps.apple.com/vn/app/surge-5/id1442620678"
+            },
+            "stash": {
+                "name": "Stash",
+                "version": "Latest",
+                "price": "99.000đ",
+                "link": "https://apps.apple.com/vn/app/stash-rule-based-proxy/id1596063349"
+            },
+            "karing": {
+                "name": "Karing",
+                "version": "latest",
+                "price": "Miễn phí",
+                "link": "https://apps.apple.com/us/app/karing/id6472431552"
+            }
+        },
+        "Android": {
+            "singbox": {
+                "name": "Sing-Box",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://play.google.com/store/apps/details?id=io.nekohasekai.sfa&hl=vi_VN&pli=1"
+            },
+            "cfa": null,
+            "nekobox": {
+                "name": "NekoBox",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://github.com/MatsuriDayo/NekoBoxForAndroid/releases/latest"
+            },
+            "meta": {
+                "name": "ClashMeta",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://github.com/MetaCubeX/ClashMetaForAndroid/releases/latest"
+            },
+            "surfboard": {
+                "name": "Surfboard",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://play.google.com/store/apps/details?id=com.getsurfboard&hl=vi_VN"
+            },
+            "v2rayng": {
+                "name": "V2RayNG",
+                "version": "Latest",
+                "price": "Miễn phí",
+                "link": "https://play.google.com/store/apps/details?id=com.v2ray.ang&hl=vi&gl=VN"
+            }
+        }
+    }
+}
