@@ -12,5 +12,12 @@
     "allow": true,
     "redirect": "",
     "note": "Testing"
+  },
+  {
+    "key": "SHOPDATA",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
   }
 ]
