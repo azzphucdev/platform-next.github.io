@@ -1,0 +1,30 @@
+[
+  {
+    "key": "TorinVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "HTPNVN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "SHOPDATA",
+    "version": 2,
+    "allow": true,
+    "redirect": "https://t.me/anhtai4g",
+    "note": "Cần cập nhật bản mới !!"
+  },
+  {
+    "key": "FUNCYVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  }
+]
