@@ -1,0 +1,30 @@
+[
+  {
+    "key": "TorinVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "HTPNVN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "SHOPDATA",
+    "version": 6,
+    "allow": true,
+    "redirect": "https://t.me/anhtai4g",
+    "note": "Cần cập nhật bản mới !!"
+  },
+  {
+    "key": "4GVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  }
+]
