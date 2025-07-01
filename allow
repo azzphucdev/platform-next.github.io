@@ -15,16 +15,16 @@
   },
   {
     "key": "SHOPDATA",
-    "version": 7,
+    "version": 8,
     "allow": true,
     "redirect": "https://zalo.me/g/iyzzfs802",
     "note": "Cần cập nhật bản mới !!"
   },
   {
     "key": "4GVPN",
-    "version": 1,
+    "version": 5,
     "allow": true,
-    "redirect": "",
-    "note": "Testing"
+    "redirect": "https://4ghatde.net/download/index.php",
+    "note": "Cần nâng cấp ứng dụng !!"
   }
 ]
