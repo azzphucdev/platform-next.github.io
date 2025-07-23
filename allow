@@ -26,5 +26,12 @@
     "allow": true,
     "redirect": "",
     "note": "Testing"
+  },
+  {
+    "key": "MosVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
   }
 ]
