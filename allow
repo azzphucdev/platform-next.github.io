@@ -33,5 +33,12 @@
     "allow": true,
     "redirect": "",
     "note": "Testing"
+  },
+  {
+    "key": "TonerConnect",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
   }
 ]
