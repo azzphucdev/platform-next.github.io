@@ -47,5 +47,13 @@
     "allow": true,
     "redirect": "",
     "note": "Testing"
+  },
+  {
+    "key": "VPNNGA",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
   }
 ]
+
