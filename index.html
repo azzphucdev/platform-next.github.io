@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="PlatformNext Dashboard">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PlatformNext Website">
+    <meta name='dmca-site-verification'
+          content='b1FCUjFWa1o5bUt4RXRrai9DVk5obmlnb1JVN1N5dWFxdTRZVG5USFJ5TT01'/>
+
+    <meta name="title" content="PlatformNext Website" />
+    <meta name="description" content="PlatformNext Dashboard" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://platformnext.dev/" />
+    <meta property="og:title" content="PlatformNext Website" />
+    <meta property="og:description" content="PlatformNext Dashboard" />
+    <meta property="og:image" content="/icons/icon-512.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://platformnext.dev/" />
+    <meta property="twitter:title" content="PlatformNext Website" />
+    <meta property="twitter:description" content="PlatformNext Dashboard" />
+    <meta property="twitter:image" content="/icons/icon-512.png" />
+
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <link rel="icon" type="image/png" href="favicon.ico"/>
+    <title>PlatformNext Website</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body style="margin: 0; height: 95%;">
+<div id="dev_loading"
+     style="margin: 0;height: 95vh;width: 100%;align-items: center;justify-content: center;display: flex;">
+    <lottie-player src="loading.json" background="transparent" speed="0.5"
+                   style="width: 300px; height: 300px;" loop
+                   autoplay></lottie-player>
+</div>
+<a href="//www.dmca.com/Protection/Status.aspx?ID=9a80b2e0-bc91-4359-8abd-244e7fda0558"
+   title="DMCA.com Protection Status" class="dmca-badge"> <img
+        src="https://images.dmca.com/Badges/dmca_protected_sml_120l.png?ID=9a80b2e0-bc91-4359-8abd-244e7fda0558"
+        alt="DMCA.com Protection Status"/></a>
+<script>
+    const serviceWorkerVersion = "1899349961" /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */;
+    window.onload = function() {
+        window.serviceWorkerVersion = serviceWorkerVersion;
+    }
+</script>
+<script>
+    window.addEventListener('load', function(ev) {
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: "1899349961" /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */,
+        }
+      }).then(function(engineInitializer) {
+        return engineInitializer.initializeEngine();
+      }).then(function(appRunner) {
+        return appRunner.runApp();
+      });
+    });
+</script>
+
+<script src="flutter_bootstrap.js" async></script>
+<script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+</body>
+</html>
