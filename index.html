@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="PlatformNext Dashboard">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="PlatformNext Website">
+  <meta name='dmca-site-verification' content='b1FCUjFWa1o5bUt4RXRrai9DVk5obmlnb1JVN1N5dWFxdTRZVG5USFJ5TT01' />
+
+  <meta name="title" content="PlatformNext Website" />
+  <meta name="description" content="PlatformNext Dashboard" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://platformnext.dev/" />
+  <meta property="og:title" content="PlatformNext Website" />
+  <meta property="og:description" content="PlatformNext Dashboard" />
+  <meta property="og:image" content="/icons/icon-512.png" />
+
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://platformnext.dev/" />
+  <meta property="twitter:title" content="PlatformNext Website" />
+  <meta property="twitter:description" content="PlatformNext Dashboard" />
+  <meta property="twitter:image" content="/icons/icon-512.png" />
+
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <title>PlatformNext Website</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script async src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
+
+  <script defer type="text/javascript"
+    src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
+  <meta name="appleid-signin-client-id" content="dev.platformnext.vpn.services">
+  <meta name="appleid-signin-scope" content="name email">
+  <meta name="appleid-signin-redirect-uri" content="https://platformnext.dev/callbacks/sign_in_with_apple">
+</head>
+
+<body style="margin: 0; height: 95%;">
+  <div id="dev_loading"
+    style="margin: 0;height: 95vh;width: 100%;align-items: center;justify-content: center;display: flex;">
+    <lottie-player src="loading.json" background="transparent" speed="0.5" style="width: 300px; height: 300px;" loop
+      autoplay></lottie-player>
+  </div>
+  <a href="//www.dmca.com/Protection/Status.aspx?ID=9a80b2e0-bc91-4359-8abd-244e7fda0558"
+    title="DMCA.com Protection Status" class="dmca-badge"> <img
+      src="https://images.dmca.com/Badges/dmca_protected_sml_120l.png?ID=9a80b2e0-bc91-4359-8abd-244e7fda0558"
+      alt="DMCA.com Protection Status" /></a>
+
+  <script>
+    var BUILD_VERSION = '2704261654';
+
+    (function () {
+      if (BUILD_VERSION === '__BUILD_' + 'VERSION__') {
+        return;
+      }
+      var cached = localStorage.getItem('app_version');
+      if (cached && cached !== BUILD_VERSION) {
+        localStorage.setItem('app_version', BUILD_VERSION);
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function (regs) {
+            regs.forEach(function (r) { r.unregister(); });
+          });
+        }
+        if (window.caches) {
+          caches.keys().then(function (names) {
+            names.forEach(function (n) { caches.delete(n); });
+          });
+        }
+        try { sessionStorage.clear(); } catch (e) { }
+        setTimeout(function () {
+          window.location.reload();
+        }, 300);
+        return;
+      }
+      localStorage.setItem('app_version', BUILD_VERSION);
+    })();
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function (regs) {
+        regs.forEach(function (r) {
+          console.log('Unregistering legacy service worker:', r.scope);
+          r.unregister();
+        });
+      });
+    }
+
+    var currentUrl = window.location.href;
+    if (!currentUrl.includes('localhost')) {
+      document.addEventListener('contextmenu', event => event.preventDefault());
+
+      document.addEventListener('mousedown', function (e) {
+        if (e.button === 2) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey) {
+          e.preventDefault();
+        }
+      });
+      document.onkeydown = function (e) {
+        if (e.keyCode == 123) {
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 74)) {
+          return false;
+        }
+        if (e.ctrlKey && e.keyCode == 85) {
+          return false;
+        }
+        if (e.metaKey && e.altKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67 || e.keyCode == 85)) {
+          return false;
+        }
+        if (e.metaKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 74)) {
+          return false;
+        }
+      };
+      var script = document.createElement('script');
+      script.src = 'f12.js?v=' + BUILD_VERSION;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    var script = document.createElement('script');
+    script.src = 'flutter_bootstrap.js?v=' + BUILD_VERSION;
+    script.async = true;
+    document.head.appendChild(script);
+  </script>
+
+  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+</body>
+
+</html>
