@@ -1,0 +1,58 @@
+[
+  {
+    "key": "TorinVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "HTPNVN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "SHOPDATA",
+    "version": 5,
+    "allow": true,
+    "redirect": "https://t.me/anhtai4g",
+    "note": "Cần cập nhật bản mới !!"
+  },
+  {
+    "key": "4GVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "MosVPN",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "TonerConnect",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+    "key": "VietZio",
+    "version": 1,
+    "allow": true,
+    "redirect": "",
+    "note": "Testing"
+  },
+  {
+      "key": "VPNNGA",
+      "version": 1,
+      "allow": true,
+      "redirect": "",
+      "note": "Testing"
+  }
+]
