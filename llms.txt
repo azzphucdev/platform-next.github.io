@@ -1,0 +1,26 @@
+# Platform Next
+
+> Platform Next is an all-in-one network acceleration and privacy management platform (VPN / proxy service). Users manage subscription links, configure multi-platform proxy clients and connect to global low-latency server nodes. Supported protocols include Sing-box, Xray, V2Ray, Hysteria, TUIC, Reality, Trojan and SSH; supported devices are iOS, Android, macOS, Windows and Linux.
+
+The web dashboard at https://platformnext.dev is a static single-page app (Vietnamese by default, also English and Chinese). Account pages require signing in; public pages describe the service and link to the native apps.
+
+## Key pages
+
+- [Home](https://platformnext.dev/): product overview, features, FAQ, sign in / sign up
+- [Download](https://platformnext.dev/download/): native apps for iOS, Android, macOS, Windows and Linux (latest versions from the release manifest)
+- [Applications](https://platformnext.dev/applications/): third-party client apps that can import a Platform Next subscription (Sing-box, Clash, Shadowrocket, Quantumult X, V2rayN…)
+
+## Documentation
+
+- [Documentation](https://docs.platformnext.dev): setup guides, subscription import, client configuration, troubleshooting
+
+## Policies and support
+
+- [Privacy Policy](https://policy.platformnext.dev/privacy/)
+- [Terms of Service](https://policy.platformnext.dev/terms/)
+- [Support e-mail](mailto:azzphucdeveloper@gmail.com)
+- [Telegram community](https://t.me/platformnext)
+
+## Optional
+
+- [Full description for LLMs](https://platformnext.dev/llms-full.txt)
