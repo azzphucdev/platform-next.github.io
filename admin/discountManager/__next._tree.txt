@@ -1,0 +1,8 @@
+:HL["/_next/static/chunks/0jm9p8e831ziy.css","style"]
+:HL["/_next/static/chunks/1fv87r7m0t_zn.css","style"]
+:HC["/",""]
+4:[["children",{"s":"__PAGE__","h":160}]]
+3:[["children",{"s":"discountManager","h":96,"c":"$Q4"}]]
+2:[["children",{"s":"admin","h":96,"c":"$Q3"}]]
+1:[["children",{"s":"(shell)","h":64,"c":"$Q2"}]]
+0:{"b":"bNTXg3tiuamwdqG2Go8Mo","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
