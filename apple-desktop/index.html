@@ -1,0 +1,203 @@
+<!doctype html>
+<!--
+  Sign in with Apple for the Platform Next desktop apps (macOS, Windows, Linux).
+
+  The desktop builds are not signed with the Sign in with Apple entitlement, so the app opens this page
+  with ?port=<loopback port>&state=<random>&lang=<locale>. The page signs in with the website's Services ID
+  (Apple JS popup, the same setup as the website's own Apple button) and hands the identity token back to
+  the app's one-shot listener: http://127.0.0.1:<port>/apple?state=…&id_token=…
+  It only ever navigates to 127.0.0.1, and only with the state the app gave it.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Platform Next · Apple</title>
+    <link rel="icon" href="/favicon.ico" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f4f4f5;
+        --card: #ffffff;
+        --ink: #18181b;
+        --muted: #52525b;
+        --line: rgba(24, 24, 27, 0.08);
+        --ok: #16a34a;
+        --bad: #dc2626;
+        --btn: #000000;
+        --btn-ink: #ffffff;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #09090b;
+          --card: #18181b;
+          --ink: #fafafa;
+          --muted: #a1a1aa;
+          --line: rgba(255, 255, 255, 0.08);
+          --ok: #4ade80;
+          --bad: #f87171;
+          --btn: #ffffff;
+          --btn-ink: #000000;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Roboto, sans-serif;
+      }
+      .card {
+        width: 100%;
+        max-width: 420px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 32px 28px 28px;
+        text-align: center;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
+      }
+      .logo { width: 64px; height: 64px; border-radius: 16px; }
+      h1 { font-size: 22px; line-height: 1.3; margin: 18px 0 8px; letter-spacing: -0.02em; }
+      p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+      .apple {
+        margin-top: 26px;
+        width: 100%;
+        height: 50px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--btn);
+        color: var(--btn-ink);
+        font-family: inherit;
+        font-size: 17px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+      .apple:disabled { opacity: 0.55; cursor: default; }
+      .apple svg { width: 18px; height: 22px; fill: currentColor; }
+      .status { margin-top: 16px; min-height: 22px; font-size: 14px; }
+      .status.ok { color: var(--ok); }
+      .status.bad { color: var(--bad); }
+      .note { margin-top: 20px; font-size: 12.5px; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <img class="logo" src="/icons/Icon-192.png" alt="" width="64" height="64" />
+      <h1 id="title"></h1>
+      <p id="lead"></p>
+      <button id="go" class="apple" type="button" disabled>
+        <svg viewBox="0 0 17 21" aria-hidden="true"><path d="M14.2 11.2c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.4.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM11.6 3.6c.7-.9 1.2-2.1 1.1-3.3-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.2 1.1.1 2.3-.6 3-1.5z"/></svg>
+        <span id="label"></span>
+      </button>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <p id="note" class="note"></p>
+    </main>
+    <script>
+      (function () {
+        var CLIENT_ID = 'dev.platformnext.vpn.services';
+        var REDIRECT_URI = 'https://platformnext.dev/callbacks/sign_in_with_apple';
+        var SDK = 'https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js';
+
+        var T = {
+          en: ['Sign in with Apple', 'Continue with Apple to sign in to the Platform Next app on this computer.', 'Continue with Apple', 'Returning to the app…', 'Signed in. Switch back to Platform Next.', 'Sign-in was cancelled. Try again when you are ready.', 'Apple sign-in did not work. Try again.', 'This link is not valid. Start again from the Platform Next app.', 'You can close this tab once the app has signed you in.'],
+          vi: ['Đăng nhập bằng Apple', 'Tiếp tục với Apple để đăng nhập ứng dụng Platform Next trên máy tính này.', 'Tiếp tục với Apple', 'Đang quay lại ứng dụng…', 'Đã đăng nhập. Hãy quay lại Platform Next.', 'Đã huỷ đăng nhập. Bấm lại khi bạn sẵn sàng.', 'Đăng nhập Apple không thành công. Hãy thử lại.', 'Liên kết không hợp lệ. Hãy bắt đầu lại từ ứng dụng Platform Next.', 'Bạn có thể đóng tab này sau khi ứng dụng đã đăng nhập.'],
+          es: ['Iniciar sesión con Apple', 'Continúa con Apple para iniciar sesión en la app Platform Next de este ordenador.', 'Continuar con Apple', 'Volviendo a la app…', 'Sesión iniciada. Vuelve a Platform Next.', 'Se canceló el inicio de sesión. Inténtalo cuando quieras.', 'El inicio de sesión con Apple falló. Inténtalo de nuevo.', 'Este enlace no es válido. Empieza de nuevo desde la app Platform Next.', 'Puedes cerrar esta pestaña cuando la app haya iniciado sesión.'],
+          id: ['Masuk dengan Apple', 'Lanjutkan dengan Apple untuk masuk ke aplikasi Platform Next di komputer ini.', 'Lanjutkan dengan Apple', 'Kembali ke aplikasi…', 'Berhasil masuk. Kembali ke Platform Next.', 'Proses masuk dibatalkan. Coba lagi saat Anda siap.', 'Masuk dengan Apple gagal. Coba lagi.', 'Tautan ini tidak valid. Mulai lagi dari aplikasi Platform Next.', 'Anda dapat menutup tab ini setelah aplikasi berhasil masuk.'],
+          'pt-BR': ['Entrar com a Apple', 'Continue com a Apple para entrar no app Platform Next neste computador.', 'Continuar com a Apple', 'Voltando ao app…', 'Você entrou. Volte ao Platform Next.', 'O login foi cancelado. Tente de novo quando quiser.', 'O login com a Apple falhou. Tente de novo.', 'Este link não é válido. Comece de novo pelo app Platform Next.', 'Você pode fechar esta aba depois que o app entrar.'],
+          ru: ['Вход через Apple', 'Продолжите с Apple, чтобы войти в приложение Platform Next на этом компьютере.', 'Продолжить с Apple', 'Возвращаемся в приложение…', 'Вход выполнен. Вернитесь в Platform Next.', 'Вход отменён. Попробуйте снова, когда будете готовы.', 'Не удалось войти через Apple. Попробуйте ещё раз.', 'Ссылка недействительна. Начните заново из приложения Platform Next.', 'Эту вкладку можно закрыть, когда приложение выполнит вход.'],
+          tr: ['Apple ile giriş', 'Bu bilgisayardaki Platform Next uygulamasına girmek için Apple ile devam edin.', 'Apple ile devam et', 'Uygulamaya dönülüyor…', 'Giriş yapıldı. Platform Next\'e dönün.', 'Giriş iptal edildi. Hazır olduğunuzda tekrar deneyin.', 'Apple ile giriş başarısız oldu. Tekrar deneyin.', 'Bu bağlantı geçersiz. Platform Next uygulamasından yeniden başlayın.', 'Uygulama giriş yaptıktan sonra bu sekmeyi kapatabilirsiniz.'],
+          'zh-CN': ['通过 Apple 登录', '继续使用 Apple 登录这台电脑上的 Platform Next 应用。', '通过 Apple 继续', '正在返回应用…', '已登录，请返回 Platform Next。', '已取消登录，准备好后再试。', 'Apple 登录失败，请重试。', '链接无效，请从 Platform Next 应用重新开始。', '应用登录完成后即可关闭此标签页。'],
+          'zh-TW': ['透過 Apple 登入', '繼續使用 Apple 登入這台電腦上的 Platform Next 應用程式。', '透過 Apple 繼續', '正在返回應用程式…', '已登入，請返回 Platform Next。', '已取消登入，準備好後再試。', 'Apple 登入失敗，請重試。', '連結無效，請從 Platform Next 應用程式重新開始。', '應用程式登入完成後即可關閉此分頁。'],
+        };
+
+        var q = new URLSearchParams(location.search);
+        var lang = q.get('lang') || navigator.language || 'en';
+        var s = T[lang] || T[lang.split('-')[0]] || (lang.indexOf('zh') === 0 ? T['zh-CN'] : null) || T.en;
+        document.documentElement.lang = lang;
+
+        var $ = function (id) { return document.getElementById(id); };
+        $('title').textContent = s[0];
+        $('lead').textContent = s[1];
+        $('label').textContent = s[2];
+        $('note').textContent = s[8];
+
+        function status(text, tone) {
+          var el = $('status');
+          el.textContent = text || '';
+          el.className = 'status' + (tone ? ' ' + tone : '');
+        }
+
+        // the app's listener: a loopback port and the state it is waiting for, nothing else
+        var port = Number(q.get('port'));
+        var state = q.get('state') || '';
+        var valid = Number.isInteger(port) && port >= 1024 && port <= 65535 && /^[A-Za-z0-9_-]{16,128}$/.test(state);
+        // the parameters do not stay in the address bar or the history
+        history.replaceState(null, '', location.pathname);
+        if (!valid) {
+          status(s[7], 'bad');
+          return;
+        }
+
+        var ready = new Promise(function (resolve, reject) {
+          var tag = document.createElement('script');
+          tag.src = SDK;
+          tag.async = true;
+          tag.onload = resolve;
+          tag.onerror = reject;
+          document.head.appendChild(tag);
+        });
+
+        var btn = $('go');
+        ready.then(
+          function () {
+            window.AppleID.auth.init({
+              clientId: CLIENT_ID,
+              scope: 'name email',
+              redirectURI: REDIRECT_URI,
+              responseType: 'code id_token',
+              responseMode: 'form_post',
+              usePopup: true,
+            });
+            btn.disabled = false;
+          },
+          function () { status(s[6], 'bad'); }
+        );
+
+        btn.addEventListener('click', function () {
+          btn.disabled = true;
+          status('');
+          window.AppleID.auth.signIn().then(
+            function (r) {
+              var token = r && r.authorization && r.authorization.id_token;
+              if (!token) {
+                btn.disabled = false;
+                status(s[6], 'bad');
+                return;
+              }
+              status(s[3], 'ok');
+              location.replace(
+                'http://127.0.0.1:' + port + '/apple?state=' + encodeURIComponent(state) + '&id_token=' + encodeURIComponent(token)
+              );
+            },
+            function (e) {
+              btn.disabled = false;
+              var text = (e && (e.error || e.message)) || String(e);
+              status(/popup_closed|cancel/.test(text) ? s[5] : s[6], /popup_closed|cancel/.test(text) ? '' : 'bad');
+            }
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>
