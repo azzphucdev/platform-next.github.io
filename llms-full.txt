@@ -1,0 +1,46 @@
+# Platform Next — full description
+
+> Platform Next is an all-in-one network acceleration and privacy management platform. It lets users securely manage subscription links, configure multi-platform proxy clients, and access high-performance global server nodes with low latency and enterprise-grade encryption.
+
+## What it is
+
+Platform Next is a VPN / proxy subscription service with a web dashboard (https://platformnext.dev) and native apps. A user creates an account, buys a package (subscription plan) with the wallet balance, then imports the generated subscription link into the Platform Next app or a compatible third-party client. The dashboard shows traffic usage, expiry, connected devices and server status.
+
+## Supported platforms
+
+- iOS, Android, macOS, Windows and Linux (native apps on the Download page: https://platformnext.dev/download/)
+- Compatible third-party clients: Sing-box, Clash, Shadowrocket, Quantumult X, V2rayN and others (list: https://platformnext.dev/applications/)
+
+## Protocols
+
+Sing-box, Xray, V2Ray, Hysteria, TUIC, Reality, Trojan and SSH.
+
+## Core features
+
+1. Multi-platform client support — works on iOS, Android, macOS, Windows and Linux; compatible with Sing-box, Clash, Shadowrocket, Quantumult X and V2rayN.
+2. Global low-latency network — worldwide server infrastructure with intelligent routing, high bandwidth and continuous uptime monitoring.
+3. Strict privacy and encryption — modern encrypted protocols with a strict no-logs policy.
+4. One-click subscriptions — import subscriptions into apps with automated node synchronisation (QR code or deep link), balance tracking and status monitoring.
+
+## Account features (signed-in dashboard)
+
+- Wallet: top up by bank transfer (VietQR), scratch card or PayPal; balance history; wallet-to-wallet transfer; gift codes.
+- Packages: buy, renew, gift a package to another e-mail, discount codes, refunds, pause / resume a package.
+- Subscriptions: subscription link + QR, import into apps, custom SNI, reset security / UUID, reset data, traffic and order history.
+- Devices: see and sign out logged-in devices, upgrade the device limit.
+- Affiliate: invitation codes, commission, leaderboard, withdrawals.
+- Support: ticket system with chat, attachments and notifications.
+- Sign in with username/e-mail and password, Google or Apple; e-mail verification codes for sign-up, password reset and account deletion.
+
+## Languages
+
+Vietnamese (default), English, Chinese.
+
+## Links
+
+- Website: https://platformnext.dev
+- Documentation: https://docs.platformnext.dev
+- Privacy Policy: https://policy.platformnext.dev/privacy/
+- Terms of Service: https://policy.platformnext.dev/terms/
+- Support: azzphucdeveloper@gmail.com
+- Telegram: https://t.me/platformnext
